@@ -65,6 +65,15 @@
           <%= link_to cart_path, class: "nav-link " do %> <%= fa_icon "shopping-cart" %>
           My Cart (<%= cart.size %>) <% end %>
         </li>
+        <li class="navbar-text"> 
+        <% if current_user %>
+        Signed in as <%= current_user.email %> | <%= button_to 'Logout', sessions_path, class: 'btn', method: :delete %>
+        <% else %>
+        <%= button_to 'Login', login_path, class: 'btn', method: :get %>
+        <%= button_to 'Register', '/signup', class: 'btn', method: :get %>
+
+        <% end %>
+        </li>
       </ul>
     </div>
   </div>
